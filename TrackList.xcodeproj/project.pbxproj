@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F614A23B469E100147331 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 040F614923B469E100147331 /* KingfisherSwiftUI */; };
+		040F614C23B469E100147331 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 040F614B23B469E100147331 /* Kingfisher */; };
+		040F614E23B4707E00147331 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 040F614D23B4707E00147331 /* README.md */; };
 		0412FF0F23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412FF0E23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift */; };
 		04A6497023B325FC0097ED68 /* PlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6496F23B325FC0097ED68 /* PlayerWindow.swift */; };
 		04D6A98123AC167200E08B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A98023AC167200E08B62 /* AppDelegate.swift */; };
@@ -39,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040F614D23B4707E00147331 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0412FF0E23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAppleScriptInterfaceTests.swift; sourceTree = "<group>"; };
 		04A6496F23B325FC0097ED68 /* PlayerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindow.swift; sourceTree = "<group>"; };
 		04D6A97D23AC167200E08B62 /* TrackList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040F614C23B469E100147331 /* Kingfisher in Frameworks */,
+				040F614A23B469E100147331 /* KingfisherSwiftUI in Frameworks */,
 				04D6A9C523AD715800E08B62 /* AppleScriptObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +95,7 @@
 		04D6A97423AC167200E08B62 = {
 			isa = PBXGroup;
 			children = (
+				040F614D23B4707E00147331 /* README.md */,
 				04D6A97F23AC167200E08B62 /* TrackList */,
 				04D6A99523AC167300E08B62 /* TrackListTests */,
 				04D6A9A023AC167300E08B62 /* TrackListUITests */,
@@ -183,6 +190,10 @@
 			dependencies = (
 			);
 			name = TrackList;
+			packageProductDependencies = (
+				040F614923B469E100147331 /* KingfisherSwiftUI */,
+				040F614B23B469E100147331 /* Kingfisher */,
+			);
 			productName = TrackList;
 			productReference = 04D6A97D23AC167200E08B62 /* TrackList.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +266,9 @@
 				Base,
 			);
 			mainGroup = 04D6A97423AC167200E08B62;
+			packageReferences = (
+				040F614823B469E100147331 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 04D6A97E23AC167200E08B62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +287,7 @@
 			files = (
 				04D6A9B723ACBE5A00E08B62 /* SpotifyInterface.scpt in Resources */,
 				04D6A98B23AC167300E08B62 /* Main.storyboard in Resources */,
+				040F614E23B4707E00147331 /* README.md in Resources */,
 				04D6A98823AC167300E08B62 /* Preview Assets.xcassets in Resources */,
 				04D6A98523AC167300E08B62 /* Assets.xcassets in Resources */,
 			);
@@ -639,6 +654,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		040F614823B469E100147331 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		040F614923B469E100147331 /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040F614823B469E100147331 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		040F614B23B469E100147331 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 040F614823B469E100147331 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04D6A97523AC167200E08B62 /* Project object */;
 }

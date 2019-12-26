@@ -8,6 +8,7 @@
 
 import SwiftUI
 import AppleScriptObjC
+import KingfisherSwiftUI
 
 struct PlayerView: View {
     @ObservedObject var parentWindow: PlayerWindow
@@ -16,7 +17,9 @@ struct PlayerView: View {
     var body: some View {
         ZStack {
             GeometryReader { windowGeometry in
-                Text("Open Spotify to View Track")
+                KFImage(URL(string: self.player.trackArtworkURL)!)
+                    .resizable()
+                    .scaledToFit()
                     .frame(width: windowGeometry.size.width,
                            height: windowGeometry.size.height,
                            alignment: .center)
@@ -26,12 +29,10 @@ struct PlayerView: View {
                         Text(self.player.trackName)
                         Text(self.player.trackArtist)
                         Text(self.player.trackAlbum)
-                        Text(TimestampFormatter.fromTimeInSeconds(self.player.playerPosition))
                     }
                 }
             }
         }
-        .border(Color.green)
         .edgesIgnoringSafeArea(.all)
     }
 }
