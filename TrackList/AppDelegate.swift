@@ -18,8 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create the main window
         window = PlayerWindow(
             contentRect: NSRect(x: 0, y: 0, width: 180, height: 180),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)        
+            styleMask: [.resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -20,9 +20,6 @@ struct PlayerView: View {
                 KFImage(URL(string: self.player.trackArtworkURL)!)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: windowGeometry.size.width,
-                           height: windowGeometry.size.height,
-                           alignment: .center)
                 
                 if self.parentWindow.hovering {
                     VStack {
@@ -34,6 +31,13 @@ struct PlayerView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .frame(minWidth: 75, // move these to an options file later on
+               idealWidth: 180,
+               maxWidth: 512,
+               minHeight: 75,
+               idealHeight: 180,
+               maxHeight: 512,
+               alignment: .center)
     }
 }
 
@@ -41,9 +45,9 @@ struct PlayerView: View {
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView(parentWindow: PlayerWindow(
-        contentRect: NSRect(x: 0, y: 0, width: 180, height: 180),
-        styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-        backing: .buffered, defer: false))
-            .frame(width: 180, height: 180, alignment: .center)
+            contentRect: NSRect(x: 0, y: 0, width: 180, height: 180),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false))
+                .frame(width: 180, height: 180, alignment: .center)
     }
 }

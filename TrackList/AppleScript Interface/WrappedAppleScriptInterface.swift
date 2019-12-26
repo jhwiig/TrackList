@@ -11,7 +11,7 @@
 import Foundation
 import AppleScriptObjC
 
-/// Middle man class between the AppleScript Interface (to the source player) and UI via fetching
+/// Middle man class between the AppleScript Interface (to the source player) and UI that pushes updates via fetching
 class WrappedAppleScriptInterface: NSObject, ObservableObject {
     var objectWillChange = NotificationCenter.default.publisher(for: .interfaceUpdated)
         .receive(on: RunLoop.main)

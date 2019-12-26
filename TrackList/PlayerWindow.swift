@@ -26,7 +26,7 @@ class PlayerWindow: NSWindow, ObservableObject {
         super.init(contentRect: contentRect,
                    styleMask: style, backing: backingStoreType, defer: flag)
         
-        playerView = PlayerView(parentWindow: self)
+        playerView = PlayerView(parentWindow: self)        
         trackingArea = NSTrackingArea(rect: frame,
                                       options: [.activeAlways,
                                                 .mouseEnteredAndExited,
@@ -34,8 +34,6 @@ class PlayerWindow: NSWindow, ObservableObject {
                                       owner: self, userInfo: nil)
         
         setFrameAutosaveName("Player Window")
-        titlebarAppearsTransparent = true
-        titleVisibility = .hidden
         isMovableByWindowBackground = true
         
         aspectRatio = CGSize(width: 1, height: 1)
@@ -47,24 +45,15 @@ class PlayerWindow: NSWindow, ObservableObject {
         contentView?.addTrackingArea(trackingArea)
         
         makeKeyAndOrderFront(nil)
-        updateWindowButtons()
     }
     
     override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
         hovering = true
-        updateWindowButtons()
     }
     
     override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
         hovering = false
-        updateWindowButtons()
-    }
-    
-    func updateWindowButtons() {
-        standardWindowButton(.closeButton)?.isHidden = !hovering
-        standardWindowButton(.miniaturizeButton)?.isHidden = !hovering
-        standardWindowButton(.zoomButton)?.isHidden = !hovering
     }
 }
