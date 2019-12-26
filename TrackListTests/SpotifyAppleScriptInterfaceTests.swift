@@ -1,15 +1,14 @@
 //
-//  TrackListTests.swift
+//  SpotifyAppleScriptInterfaceTests.swift
 //  TrackListTests
 //
-//  Created by Jack Wiig on 12/19/19.
+//  Created by Jack Wiig on 12/21/19.
 //  Copyright © 2019 Jack Wiig. All rights reserved.
 //
 
 import XCTest
-@testable import TrackList
 
-class TrackListTests: XCTestCase {
+class SpotifyAppleScriptInterfaceTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
