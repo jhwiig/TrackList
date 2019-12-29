@@ -18,6 +18,7 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
     
     private var interface: PlayerAppleScriptInterface
     private var fetchTimer: Timer!
+    let fetchRate: Double = 1
     
     // MARK: Computed Properties
     
@@ -26,7 +27,8 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
     var trackArtist: String { interface.trackArtist as String }
     var trackAlbum: String { interface.trackAlbum as String }
     var trackArtworkURL: String { interface.trackArtworkURL as String }
-    var trackLength: Int { Int(truncating: interface.trackLength) }
+    // NOTE: Spotify gives track length in milliseconds. This may vary per platform
+    var trackLength: Double { Double(truncating: interface.trackLength) / 1000 }
     var trackURL: String {
         get { interface.trackURL as String }
         set(newURL) { interface.trackURL = newURL as NSString }
@@ -53,7 +55,15 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
         set(newState) { interface.shuffling = NSNumber(value: newState) }
     }
     
-    // MARK: Methods
+    // MARK: Interface Methods
+    
+    func play() { interface.setPlaying() }
+    func play(track: String) { interface.playTrack(track: track as NSString) }
+    func pause() { interface.setPaused() }
+    func next() { interface.setNext() }
+    func previous() { interface.setPrevious() }
+    
+    // MARK: Wrapper Methods
     
     init(platform: PlayerType) {
         Bundle.main.loadAppleScriptObjectiveCScripts()
@@ -61,10 +71,14 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
         super.init()
         
         // 1 second timer to fetch information
-        fetchTimer = Timer(timeInterval: 1, repeats: true, block: { _ in
-            NotificationCenter.default.post(name: .interfaceUpdated, object: self)
-        })
+        fetchTimer = Timer(timeInterval: fetchRate,
+                           target: self, selector: #selector(fetchData), userInfo: nil,
+                           repeats: true)
         RunLoop.main.add(fetchTimer, forMode: .common)
+    }
+    
+    @objc func fetchData() {
+        NotificationCenter.default.post(name: .interfaceUpdated, object: self)
     }
     
     static func loadInterface(name: String) -> PlayerAppleScriptInterface {
@@ -104,11 +118,11 @@ enum PlayerType: String {
     case Spotify
 }
 
-@objc enum PlayerState: Int {
+enum PlayerState: Int {
     case stopped
     case playing
     case paused
-    case errorState
+    case error
 }
 
 extension Notification.Name {

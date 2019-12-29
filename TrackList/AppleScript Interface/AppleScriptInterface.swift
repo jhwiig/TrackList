@@ -25,5 +25,11 @@ import Foundation
     var repeatingEnabled: NSNumber { get }
     var repeating: NSNumber { get set }
     var shufflingEnabled: NSNumber { get }
-    var shuffling: NSNumber { get set }    
+    var shuffling: NSNumber { get set }
+    
+    func setPlaying()
+    func playTrack(track: NSString)
+    func setPaused()
+    func setNext()
+    func setPrevious()
 }
