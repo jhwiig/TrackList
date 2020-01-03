@@ -13,7 +13,7 @@ class PlayerWindow: NSWindow, ObservableObject {
     
     // Interface Elements
     private var trackingArea: NSTrackingArea!
-    private var playerView: PlayerView!
+    private var player: WrappedAppleScriptInterface
 
     // UI State Element
     @Published var hovering: Bool = false
@@ -22,11 +22,15 @@ class PlayerWindow: NSWindow, ObservableObject {
                   styleMask style: NSWindow.StyleMask,
                   backing backingStoreType: NSWindow.BackingStoreType,
                   defer flag: Bool) {
-
+        
+        player = WrappedAppleScriptInterface(platform: .Spotify)
         super.init(contentRect: contentRect,
                    styleMask: style, backing: backingStoreType, defer: flag)
         
-        playerView = PlayerView(parentWindow: self)        
+        let playerView = PlayerView()
+            .environmentObject(player)
+            .environmentObject(self)
+        
         trackingArea = NSTrackingArea(rect: frame,
                                       options: [.activeAlways,
                                                 .mouseEnteredAndExited,
@@ -40,7 +44,7 @@ class PlayerWindow: NSWindow, ObservableObject {
         
         level = .floating
         collectionBehavior = .canJoinAllSpaces
-        
+
         contentView = NSHostingView(rootView: playerView)
         contentView?.addTrackingArea(trackingArea)
         
@@ -56,4 +60,5 @@ class PlayerWindow: NSWindow, ObservableObject {
         super.mouseExited(with: event)
         hovering = false
     }
+    
 }

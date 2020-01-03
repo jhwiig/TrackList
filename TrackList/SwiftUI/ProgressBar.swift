@@ -11,20 +11,22 @@ import SwiftUI
 // TODO: Fix Progress Bar Scaling on Resize
 
 struct ProgressBar: View {
+    @EnvironmentObject var player: WrappedAppleScriptInterface
     var progress: CGFloat
     var progressFetchRate: Double
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .bottomLeading, content: {
                 Rectangle()
-                    .fill(Color("ProgressBarSecondaryColor"))
+                    .fill(Color(NSColor.lightGray))
                 Rectangle()
-                    .fill(Color("ProgressBarPrimaryColor"))
+                    .fill(Color(NSColor.textBackgroundColor))
                     .frame(width: max(min(self.progress, 1), 0) * geometry.size.width)
                     .animation(.linear(duration: self.progressFetchRate))
             })
+            .drawingGroup()
         }
-        .drawingGroup()
     }
 }
 

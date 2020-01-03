@@ -57,6 +57,7 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
     
     // MARK: Interface Methods
     
+    func togglePlayback() { interface.togglePlayPause() }
     func play() { interface.setPlaying() }
     func play(track: String) { interface.playTrack(track: track as NSString) }
     func pause() { interface.setPaused() }

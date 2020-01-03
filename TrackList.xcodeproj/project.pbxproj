@@ -12,6 +12,8 @@
 		040F614E23B4707E00147331 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 040F614D23B4707E00147331 /* README.md */; };
 		0412FF0F23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412FF0E23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift */; };
 		041E0E6423B5B6200066CAEF /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E0E6323B5B6200066CAEF /* ProgressBar.swift */; };
+		042871BE23BD917800FFB5E8 /* PlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042871BD23BD917800FFB5E8 /* PlayerControls.swift */; };
+		042871C023BD9ED900FFB5E8 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042871BF23BD9ED900FFB5E8 /* CustomSlider.swift */; };
 		04A6497023B325FC0097ED68 /* PlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6496F23B325FC0097ED68 /* PlayerWindow.swift */; };
 		04D6A98123AC167200E08B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A98023AC167200E08B62 /* AppDelegate.swift */; };
 		04D6A98323AC167200E08B62 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A98223AC167200E08B62 /* PlayerView.swift */; };
@@ -47,6 +49,8 @@
 		040F614D23B4707E00147331 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		0412FF0E23AE9E1E000AF5FA /* SpotifyAppleScriptInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAppleScriptInterfaceTests.swift; sourceTree = "<group>"; };
 		041E0E6323B5B6200066CAEF /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		042871BD23BD917800FFB5E8 /* PlayerControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControls.swift; sourceTree = "<group>"; };
+		042871BF23BD9ED900FFB5E8 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		04A6496F23B325FC0097ED68 /* PlayerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindow.swift; sourceTree = "<group>"; };
 		04D6A97D23AC167200E08B62 /* TrackList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D6A98023AC167200E08B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,8 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				04D6A98223AC167200E08B62 /* PlayerView.swift */,
+				042871BD23BD917800FFB5E8 /* PlayerControls.swift */,
 				041E0E6323B5B6200066CAEF /* ProgressBar.swift */,
 				04EC674B23B7E24C00287805 /* CircleButton.swift */,
+				042871BF23BD9ED900FFB5E8 /* CustomSlider.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -328,6 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042871BE23BD917800FFB5E8 /* PlayerControls.swift in Sources */,
+				042871C023BD9ED900FFB5E8 /* CustomSlider.swift in Sources */,
 				04EC674C23B7E24C00287805 /* CircleButton.swift in Sources */,
 				04D6A98323AC167200E08B62 /* PlayerView.swift in Sources */,
 				04D6A9B523AC8B6600E08B62 /* WrappedAppleScriptInterface.swift in Sources */,

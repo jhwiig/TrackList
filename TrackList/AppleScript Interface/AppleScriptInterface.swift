@@ -27,6 +27,7 @@ import Foundation
     var shufflingEnabled: NSNumber { get }
     var shuffling: NSNumber { get set }
     
+    func togglePlayPause()
     func setPlaying()
     func playTrack(track: NSString)
     func setPaused()
