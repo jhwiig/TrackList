@@ -1,5 +1,5 @@
 //
-//  PlayerData.swift
+//  WrappedAppleScriptInterface.swift
 //  TrackList
 //
 //  Created by Jack Wiig on 12/19/19.
@@ -89,6 +89,10 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
     }
 }
 
+extension Notification.Name {
+    static let interfaceUpdated = Notification.Name("interfaceUpdated")
+}
+
 // MARK: - Helper Structures
 
 class TimestampFormatter {
@@ -124,8 +128,4 @@ enum PlayerState: Int {
     case playing
     case paused
     case error
-}
-
-extension Notification.Name {
-    static let interfaceUpdated = Notification.Name("interfaceUpdated")
 }

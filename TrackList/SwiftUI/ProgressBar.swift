@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-// TODO: Fix Progress Bar Scaling on Resize
-
 struct ProgressBar: View {
     @EnvironmentObject var player: WrappedAppleScriptInterface
     var progress: CGFloat

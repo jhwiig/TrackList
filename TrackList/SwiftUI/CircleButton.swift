@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-// TODO: Dark Mode variant of button
 // BUG? : While the click hitbox is a circle, the entire rectangular frame is not considered background,
 //        meaning that you cannot drag the window from the edges of the button
 

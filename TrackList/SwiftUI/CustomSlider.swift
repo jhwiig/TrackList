@@ -13,7 +13,11 @@ struct CustomSlider: View {
     @EnvironmentObject var window: PlayerWindow
     @Binding var value: Double
     var maxValue: Double
-    @State private var hovering: Bool = false
+    
+    var sliderPosition: CGFloat {
+        max(min(CGFloat(self.value / self.maxValue), 1), 0)
+    }
+
     var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .center, content: {
@@ -22,28 +26,26 @@ struct CustomSlider: View {
                         .fill(Color(NSColor.lightGray))
                     Rectangle()
                         .fill(Color(NSColor.textBackgroundColor))
-                        .frame(width:
-                            max(min(CGFloat(self.value / self.maxValue), 1), 0)
-                                * (geometry.size.width - geometry.size.height))
+                        .frame(width: self.sliderPosition * (geometry.size.width - geometry.size.height))
                 })
                     .frame(width: geometry.size.width - geometry.size.height,
                            height: geometry.size.height / 5)
+                                
                 
-                HStack(alignment: .center, spacing: 0, content: {
-                    Spacer()
-                        .frame(width:
-                            max(min(CGFloat(self.value / self.maxValue), 1), 0) * (geometry.size.width - geometry.size.height))
-                    Circle()
-                        .foregroundColor(Color(NSColor.textColor))
-                        .frame(width: geometry.size.height, alignment: .center)
-                    Spacer()
-                })
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                Circle()
+                    .foregroundColor(Color(NSColor.textColor))
+                    .frame(width: geometry.size.height, alignment: .center)
+                    .padding(self.sliderPosition < 0.5 ? .trailing : .leading,
+                             {
+                                let sliderWidth = geometry.size.width - geometry.size.height
+                                if self.sliderPosition < 0.5 {
+                                    return (1 - 2 * self.sliderPosition) * sliderWidth
+                                }
+                                return (2 * self.sliderPosition - 1) * sliderWidth
+                    }())
             })
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
                 .onHover(perform: {hovering in
-                    self.hovering = hovering
-                    
                     // This is a workaround that allows moving the slider without moving the window background,
                     // but the window must be focused for it to work, so it is not a complete solution.
                     // Thanks Andrew!
@@ -62,7 +64,7 @@ struct CustomSlider: View {
 
 struct CustomSlider_Previews: PreviewProvider {
     static var previews: some View {
-        CustomSlider(value: .constant(50), maxValue: 100)
-            .frame(width: 60, height: 10, alignment: .center)
+        CustomSlider(value: .constant(60), maxValue: 100)
+            .frame(width: 120, height: 20, alignment: .center)
     }
 }

@@ -26,7 +26,26 @@ struct PlayerControls: View {
                             self.window.close()
                         })
                             .frame(width: 20, height: 20, alignment: .center)
+                        
                         Spacer()
+                        
+                        if self.player.shufflingEnabled && geometry.size.width < 200 {
+                            CircleButton(image: "ShuffleIcon", action: {
+                                self.player.shuffling.toggle()
+                            })
+                                .frame(width: 20, height: 20, alignment: .center)
+
+                            Spacer()
+                                .frame(width: 5)
+                            
+                            CircleButton(image: "RepeatIcon", action: {
+                                self.player.repeating.toggle()
+                            })
+                                .frame(width: 20, height: 20, alignment: .center)
+
+                            Spacer()
+                        }
+                        
                         CircleButton(image: "SettingsIcon", action: {
                             //
                         })
@@ -45,6 +64,14 @@ struct PlayerControls: View {
                     }
                     
                     HStack(alignment: .center, content: {
+                        
+                        if self.player.shufflingEnabled && geometry.size.width >= 200 {
+                            CircleButton(image: "ShuffleIcon", action: {
+                                self.player.shuffling.toggle()
+                            })
+                                .frame(width: 25, height: 25, alignment: .center)
+                        }
+                        
                         CircleButton(image: "PreviousIcon", action: {
                             self.player.previous()
                         })
@@ -65,6 +92,13 @@ struct PlayerControls: View {
                             self.player.next()
                         })
                             .frame(width: 25, height: 25, alignment: .center)
+                        
+                        if self.player.shufflingEnabled && geometry.size.width >= 200 {
+                            CircleButton(image: "RepeatIcon", action: {
+                                self.player.shuffling.toggle()
+                            })
+                                .frame(width: 25, height: 25, alignment: .center)
+                        }
                     })
                     
                     VStack(spacing: 0, content: {
