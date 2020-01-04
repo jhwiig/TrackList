@@ -100,16 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		041E0E6223B5B5D60066CAEF /* SwiftUI */ = {
+		041E0E6223B5B5D60066CAEF /* Player UI Elements */ = {
 			isa = PBXGroup;
 			children = (
-				04D6A98223AC167200E08B62 /* PlayerView.swift */,
-				042871BD23BD917800FFB5E8 /* PlayerControls.swift */,
 				041E0E6323B5B6200066CAEF /* ProgressBar.swift */,
 				04EC674B23B7E24C00287805 /* CircleButton.swift */,
 				042871BF23BD9ED900FFB5E8 /* CustomSlider.swift */,
 			);
-			path = SwiftUI;
+			path = "Player UI Elements";
 			sourceTree = "<group>";
 		};
 		04D6A97423AC167200E08B62 = {
@@ -139,7 +137,9 @@
 			children = (
 				04D6A98023AC167200E08B62 /* AppDelegate.swift */,
 				04A6496F23B325FC0097ED68 /* PlayerWindow.swift */,
-				041E0E6223B5B5D60066CAEF /* SwiftUI */,
+				04D6A98223AC167200E08B62 /* PlayerView.swift */,
+				042871BD23BD917800FFB5E8 /* PlayerControls.swift */,
+				041E0E6223B5B5D60066CAEF /* Player UI Elements */,
 				04D6A9B023AC869B00E08B62 /* AppleScript Interface */,
 				04D6A98423AC167300E08B62 /* Assets.xcassets */,
 				04D6A98923AC167300E08B62 /* Main.storyboard */,

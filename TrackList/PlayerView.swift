@@ -18,7 +18,9 @@ struct PlayerView: View {
         ZStack(alignment: .bottomLeading, content: {
             KFImage(URL(string: player.trackArtworkURL)!)
                 .placeholder({
-                    Text("Placeholder, replace me with an image!") // make sure this is an image
+                    Image("Placeholder")
+                        .resizable()
+                        .scaledToFit()
                 })
                 .interpolation(.high)
                 .resizable()
@@ -37,12 +39,12 @@ struct PlayerView: View {
             }
         })
         .edgesIgnoringSafeArea(.all)
-        .frame(minWidth: 128, // move these to an options file later on
-               idealWidth: 180,
-               maxWidth: 512,
-               minHeight: 128,
-               idealHeight: 180,
-               maxHeight: 512,
+        .frame(minWidth: 195, // move these to an options file later on
+               idealWidth: 200,
+               maxWidth: 480,
+               minHeight: 195,
+               idealHeight: 200,
+               maxHeight: 480,
                alignment: .center)
     }
 }

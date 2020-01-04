@@ -33,4 +33,5 @@ import Foundation
     func setPaused()
     func setNext()
     func setPrevious()
+    func focus()
 }

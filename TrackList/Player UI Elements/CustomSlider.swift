@@ -53,7 +53,9 @@ struct CustomSlider: View {
                 })
                 .gesture(DragGesture(minimumDistance: 0)
                     .onChanged({ dragValue in
-                        self.value = Double(dragValue.location.x / geometry.size.width) * self.maxValue
+                        withAnimation(.none, {
+                            self.value = Double(dragValue.location.x / geometry.size.width) * self.maxValue
+                        })
                         // Fetch new value so that the slider updates quickly.
                         self.player.fetchData()
                     }))

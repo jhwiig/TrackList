@@ -63,6 +63,7 @@ class WrappedAppleScriptInterface: NSObject, ObservableObject {
     func pause() { interface.setPaused() }
     func next() { interface.setNext() }
     func previous() { interface.setPrevious() }
+    func focus() { interface.focus() }
     
     // MARK: Wrapper Methods
     

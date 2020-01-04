@@ -35,10 +35,10 @@ struct CircleButton: View {
                                    alignment: .center)
                     }
                 }
+                .drawingGroup()
             }
                 .buttonStyle(BorderlessButtonStyle())
                 .contentShape(Circle())
-                .foregroundColor(Color(NSColor.textColor))
         }
     }
 }

@@ -52,13 +52,10 @@ class PlayerWindow: NSWindow, ObservableObject {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        super.mouseEntered(with: event)
         hovering = true
     }
     
     override func mouseExited(with event: NSEvent) {
-        super.mouseExited(with: event)
         hovering = false
     }
-    
 }
